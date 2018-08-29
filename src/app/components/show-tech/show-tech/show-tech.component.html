@@ -1,0 +1,192 @@
+<body class="menubar-hoverable header-fixed menubar-pin ">
+    <app-header></app-header>
+    <div id="base" class="base">
+        <div class="offcanvas">
+        </div>
+        <div id="content">
+            <section>
+                <div class="section-body">
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-2">
+                            <div class="card">
+                                <form class="form form-validate">
+                                    <div class="card-head style-accent">
+                                        <header>Ficha del Técnico</header>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="form-group" style="text-align: -webkit-center;">
+                                            <img class="img-circle img-responsive img-producto" [src]="data.image" alt="">
+                                        </div>
+                                        <div class="form-group">
+                                            <p class="form-control-static">{{json.rut}}</p>
+                                            <label for="rut">Rut</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <p class="form-control-static">{{json.nombre}}</p>
+                                            <label for="nombre">Nombre</label>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <p class="form-control-static">{{json.paterno}}</p>
+                                                    <label for="paterno">Apellido paterno</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <p class="form-control-static">{{json.materno}}</p>
+                                                    <label for="materno">Apellido materno</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <p class="form-control-static">{{json.correo}}</p>
+                                            <label for="email">Correo eléctronico</label>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <p class="form-control-static">{{json.telefono}}</p>
+                                                    <label for="telefono">Télefono de contacto</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <p class="form-control-static">{{json.emergencia}}</p>
+                                                    <label for="emergencia">Télefono de emergencia</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <p class="form-control-static">{{json.direccion}}</p>
+                                            <label for="direccion">Dirección</label>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <p class="form-control-static">{{json.profesion}}</p>
+                                                    <label for="profesion">Profesión</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <p class="form-control-static">{{json.automovil}}</p>
+                                                    <label for="automovil">Automóvil asignado</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+
+                            <div class="card" *ngIf="documentos?.length > 0">
+                                <div class="card-head style-accent">
+                                    <header>Archivos</header>
+                                </div>
+                                <div class="card-body">
+                                    <table class="table no-margin table-hover table-striped" *ngIf="documentos?.length > 0">
+                                        <thead>
+                                            <tr>
+                                                <th>NOMBRE</th>
+                                                <th>DESCARGAR</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let item of documentos">
+                                                <td>{{item.nombre}}</td>
+                                                <td>
+                                                    <button (click)="downloadDoc(item.url)" type="button" class="btn ink-reaction btn-floating-action btn-xs btn-success">
+                                                        <i class="md md-cloud-download"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div id="menubar" class=" ">
+            <div class="menubar-fixed-panel">
+                <div>
+                    <a class="btn btn-icon-toggle btn-default menubar-toggle" data-toggle="menubar" href="javascript:void(0);">
+                        <i class="fa fa-bars"></i>
+                    </a>
+                </div>
+                <div class="expanded">
+                    <span class="text-lg text-bold text-primary ">PLAGAPP</span>
+                </div>
+            </div>
+            <div class="menubar-scroll-panel">
+                <ul id="main-menu" class="gui-controls">
+                    <li>
+                        <a routerLink="/home">
+                            <div class="gui-icon">
+                                <i class="md md-home"></i>
+                            </div>
+                            <span class="title">Inicio</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a routerLink="/ordenes">
+                            <div class="gui-icon">
+                                <i class="md md-format-list-bulleted"></i>
+                            </div>
+                            <span class="title">Ordenes de trabajo</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a routerLink="/mapa/null">
+                            <div class="gui-icon">
+                                <i class="fa fa-map-marker"></i>
+                            </div>
+                            <span class="title">Mapa de instalaciones</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a routerLink="/certificados">
+                            <div class="gui-icon">
+                                <i class="md md-attach-file"></i>
+                            </div>
+                            <span class="title">Documentación</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a routerLink="/equipo">
+                            <div class="gui-icon">
+                                <i class="fa fa-users"></i>
+                            </div>
+                            <span class="title">Equipo técnico</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a routerLink="/informe">
+                            <div class="gui-icon">
+                                <i class="fa fa-line-chart"></i>
+                            </div>
+                            <span class="title">Informe</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a routerLink="/contact">
+                            <div class="gui-icon">
+                                <i class="md md-email"></i>
+                            </div>
+                            <span class="title">Contacto</span>
+                        </a>
+                    </li>
+                </ul>
+                <div class="menubar-foot-panel">
+                    <small class="no-linebreak hidden-folded">
+                        <span class="opacity-75">Copyright &copy; {{ authService.copyYear() }}</span>
+                        <strong>PlagAPP</strong>
+                    </small>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

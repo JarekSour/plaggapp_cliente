@@ -1,0 +1,7 @@
+.base {
+    min-height: 100vh !important;
+}
+
+agm-map {
+    height: 400px;
+}

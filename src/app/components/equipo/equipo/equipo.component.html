@@ -1,0 +1,130 @@
+<body class="menubar-hoverable header-fixed menubar-pin ">
+    <app-header></app-header>
+
+    <div id="base" class="base">
+
+
+        <div class="offcanvas">
+        </div>
+
+        <div id="content">
+            <section>
+                <div class="section-body">
+                    <div class="row">
+                        <div class="card">
+                            <div class="card-body text-default-light">
+                                <h2 *ngIf="tech?.length == 0">No tienes técnicos asociados a tu cuenta</h2>
+                                <div class="list-results">
+                                    <div class="col-xs-6 col-lg-4 hbox-xs" *ngFor="let item of tech">
+                                        <div class="hbox-column width-2">
+                                            <img class="img-circle img-responsive pull-left " src="https://api.plagapp.cl/tecnico/avatar/get?image={{item.avatar}}">
+                                        </div>
+                                        <div class="hbox-column v-top">
+                                            <div class="clearfix">
+                                                <div class="col-lg-12 margin-bottom-lg name-tec">
+                                                    <a [routerLink]="['/tecnico', item.id]" class="text-lg text-medium">{{item.nombre}} {{item.apellido_paterno}} {{item.apellido_materno}}</a>
+                                                </div>
+                                            </div>
+                                            <div class="clearfix opacity-80">
+                                                <div class="col-md-12">
+                                                    &nbsp;
+                                                    <span style="font-weight: 900">TELÉFONO</span> {{item.telefono}}
+                                                    <br> &nbsp;
+                                                    <span style="font-weight: 900">CORREO</span> {{item.correo}}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div id="menubar" class=" ">
+            <div class="menubar-fixed-panel">
+                <div>
+                    <a class="btn btn-icon-toggle btn-default menubar-toggle" data-toggle="menubar" href="javascript:void(0);">
+                        <i class="fa fa-bars"></i>
+                    </a>
+                </div>
+                <div class="expanded">
+                    <span class="text-lg text-bold text-primary ">PLAGAPP</span>
+                </div>
+            </div>
+            <div class="menubar-scroll-panel">
+                <ul id="main-menu" class="gui-controls">
+                    <li>
+                        <a routerLink="/home">
+                            <div class="gui-icon">
+                                <i class="md md-home"></i>
+                            </div>
+                            <span class="title">Inicio</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a routerLink="/ordenes">
+                            <div class="gui-icon">
+                                <i class="md md-format-list-bulleted"></i>
+                            </div>
+                            <span class="title">Ordenes de trabajo</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a routerLink="/mapa/null">
+                            <div class="gui-icon">
+                                <i class="fa fa-map-marker"></i>
+                            </div>
+                            <span class="title">Mapa de instalaciones</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a routerLink="/certificados">
+                            <div class="gui-icon">
+                                <i class="md md-attach-file"></i>
+                            </div>
+                            <span class="title">Documentación</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a routerLink="/equipo">
+                            <div class="gui-icon">
+                                <i class="fa fa-users"></i>
+                            </div>
+                            <span class="title">Equipo técnico</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a routerLink="/informe">
+                            <div class="gui-icon">
+                                <i class="fa fa-line-chart"></i>
+                            </div>
+                            <span class="title">Informe</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a routerLink="/contact">
+                            <div class="gui-icon">
+                                <i class="md md-email"></i>
+                            </div>
+                            <span class="title">Contacto</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="menubar-foot-panel">
+                    <small class="no-linebreak hidden-folded">
+                        <span class="opacity-75">Copyright &copy; {{ authService.copyYear() }}</span>
+                        <strong>PlagAPP</strong>
+                    </small>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
